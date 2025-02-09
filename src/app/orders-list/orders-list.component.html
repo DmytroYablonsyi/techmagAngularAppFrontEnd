@@ -1,0 +1,22 @@
+<section>
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>ID замовлення</th>
+              <th>Замовник</th>
+              <th>Дата покупки</th>
+              <th>Сума</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders()">
+              <td>{{order._id}}</td>
+              <td>{{ order.customerName }}</td>
+              <td>{{ order.createdAt | date:'MMMM dd, yyyy HH:mm:ss' }}</td>
+              <td>{{ order.amount }}</td>
+              <td><button class="view-details-btn" (click)="getOrderDetails(order._id)">View Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+</section>

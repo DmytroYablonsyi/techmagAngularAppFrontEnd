@@ -1,0 +1,131 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    color: white;
+    padding: 15px 30px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    font-family: 'Roboto', sans-serif; 
+    transition: all 0.3s ease; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+.header:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+  }
+  
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+  }
+  
+.logo-text {
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 5px; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+  }
+  
+.logo:hover {
+    color: #f39c12; 
+    transform: scale(1.1); 
+    transition: all 0.3s ease; 
+  }
+  
+@media (max-width: 768px) {
+    .header {
+      padding: 10px 20px; 
+    }
+  
+    .logo-text {
+      font-size: 26px;
+    }
+  }
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  
+a {
+    text-decoration: none; 
+    color: white; 
+    font-weight: bold;
+    transition: color 0.3s ease; 
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  
+a:hover {
+    color: #3498db
+  }
+  
+a.active {
+    color: #f39c12; 
+  }
+.active-link {
+    color: #3498db
+  }
+  
+ /* Загальний стиль для елементу списку */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Розрив між ім'ям і кнопкою */
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Стиль для привітального повідомлення */
+.welcome-message {
+  font-size: 18px;
+  font-weight: bold;
+  color: #97eb9a; /* Колір, який відображатиме привітання */
+}
+
+/* Стиль для кнопки Logout */
+.logout-btn {
+  padding: 6px 12px;
+  background-color: #f44336; /* Червоний колір для кнопки Logout */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Стиль для hover ефекту на кнопці Logout */
+.logout-btn:hover {
+  background-color: #d32f2f; /* Трохи темніший відтінок червоного */
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+  .user-info {
+    flex-direction: column; /* Розміщуємо ім'я та кнопку під один одному */
+    align-items: flex-start;
+  }
+  .welcome-message {
+    font-size: 14px;
+  }
+  .logout-btn {
+    margin-top: 5px;
+  }
+}

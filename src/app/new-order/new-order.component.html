@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Create New Order<br> <span class="product-name-head">{{ product.name }}</span></h2>
+  <form (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="customerName">Name of the customer:</label>
+      <select id="customerName" (change)="onCustomerNameChange($event)" required>
+        <option value="" disabled selected>Choose customer from the list</option>
+        <option *ngFor="let customer of customers()" [value]="customer.name">
+          {{ customer.name }}
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" type="number" [value]="quantity()" (input)="onQuantityChange($event)" required />
+    </div>
+
+    <div>
+      <label for="delivMethod">Delivery type:</label>
+      <select id="delivMethod" (change)="onDelivMethodChange($event); updateAmount()">
+        <option value="" disabled>Choose delivery type from the list</option>
+        <option *ngFor="let method of product.delivery.methods" [value]="method.method">
+          {{ method.method }}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf="delivMethod()">
+      <div>
+        <label for="deliveryTime">Delivery time:</label>
+        <p id="deliveryTime">{{ deliveryTime() }}</p>
+      </div>
+      <div>
+        <label for="deliveryPrice">Delivery price:</label>
+        <p id="deliveryPrice">{{ deliveryPrice() | currency }}</p>
+      </div>
+    </div>
+
+    <div>
+      <label for="amount">Amount:</label>
+      <input id="amount" [value]="amount()" disabled />
+    </div>
+
+    <button type="submit">Add Order</button>
+  </form>
+
+  <hr>
+</div>

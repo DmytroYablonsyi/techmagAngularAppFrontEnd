@@ -1,0 +1,23 @@
+<div *ngIf="order()">
+    <a routerLink="/orders" class="back-btn">Back</a>
+    <h2>Order Details</h2>
+    
+    <p><strong><i>Customer Name:</i></strong> {{ order()?.customerName }}</p>
+    <p><strong><i>Product:</i></strong> {{ order()?.product }}</p>
+    <p><strong><i>Quantity:</i></strong> {{ order()?.quantity }}</p>
+    <p><strong><i>Amount:</i></strong> {{ amount() | currency }}</p>
+    <p><strong><i>Delivery Method:</i></strong> {{ order()?.delivery?.method }}</p>
+    <p><strong><i>Delivery Time:</i></strong> {{ order()?.delivery?.time }}</p>
+    <p><strong><i>Delivery Price:</i></strong> {{ order()?.delivery?.price | currency }}</p>
+    <hr>
+    <p class="total-amount">Total Amount: 
+      <i style="color: rgb(15, 19, 226);">
+        {{ totalAmount() | currency }}
+      </i>
+    </p>
+  </div>
+  
+  <div *ngIf="!order()">
+    <p>Loading...</p>
+  </div>
+  

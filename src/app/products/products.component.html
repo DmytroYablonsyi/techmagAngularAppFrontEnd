@@ -1,0 +1,35 @@
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>Назва товару</th>
+      <th>Опис</th>
+      <th>Ціна</th>
+      <th>Метод доставки</th>
+      <th></th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products()">
+      <td class="productName">{{ product.name }}</td>
+      <td class="description">{{ product.description }}</td>
+      <td class="price">{{ product.price | currency }}</td>
+      <td>
+        <div *ngIf="product.delivery.methods.length > 0; else noDelivery">
+          <ul id="delivery-method-{{ product._id }}">
+            <li *ngFor="let method of product.delivery.methods">
+              {{ method.method }} - {{ method.time }} - {{ method.price | currency }}
+            </li>
+          </ul>
+        </div>
+        <ng-template #noDelivery>
+          <span>Delivery is not available</span>
+        </ng-template>
+      </td>
+      <td>
+        <button [routerLink]="['/new-order', product._id]" class="create-order-btn">
+          Створити замовлення
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

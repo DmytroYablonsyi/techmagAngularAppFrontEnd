@@ -1,0 +1,18 @@
+
+<header class="header">
+    <div routerLink="/" class="logo">
+      <span class="logo-text">YourTech</span>
+    </div>
+    <nav>
+        <ul>
+          <li><a routerLink="/new-customer" routerLinkActive="active-link">+ New Customer</a></li>
+          <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Products</a></li>
+          <li><a routerLink="/orders" routerLinkActive="active-link">Orders</a></li>
+          <li><a routerLink="/customers" routerLinkActive="active-link">Customers</a></li>
+          <li *ngIf="isLoggedIn()" class="user-info">
+            <span class="welcome-message">Welcome, {{ userName }}</span>
+            <a (click)="onLogout()" class="logout-btn" routerLinkActive="active-link">Logout</a>
+          </li>
+        </ul>
+    </nav>
+</header>

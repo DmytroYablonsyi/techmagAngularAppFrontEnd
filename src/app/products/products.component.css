@@ -1,0 +1,94 @@
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Відступ зверху */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тінь навколо таблиці */
+    background-color: #fff; /* Білий фон для таблиці */
+    border-radius: 8px; /* Заокруглення кутів */
+    overflow: hidden; /* Відображення не виходить за межі */
+}
+
+.product-table th {
+    padding: 12px;
+    background-color: #3498db; 
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+}
+
+.product-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.description{
+    width: 40%;
+    font-size: 14px;
+}
+
+.price{
+    color:tomato;
+    font-size: 17px;
+}
+
+.productName{
+    width: black;
+    font-size: 17px;
+}
+
+.product-table tr:hover {
+    background-color: #f5f5f5; 
+    cursor: pointer; 
+}
+
+.product-table td:first-child {
+    font-weight: bold;
+    color: #4443a2;
+}
+
+.product-table td:last-child {
+    color: #025399;
+    text-align: left;
+
+}
+
+.create-order-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.create-order-btn:hover {
+    background-color: #27ae60; 
+}
+
+.product-table select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .product-table {
+        font-size: 12px; 
+    }
+    
+    .product-table th, .product-table td {
+        padding: 10px; 
+    }
+    
+    .add-to-cart-btn {
+        padding: 8px 16px; 
+    }
+}
