@@ -1,6 +1,6 @@
-/* Загальний стиль для контейнера */
+
 .login-container {
-    max-width: 400px;
+    max-width: 40%;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;

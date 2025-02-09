@@ -1,15 +1,16 @@
-import { Component, OnInit, signal} from '@angular/core';
-import { AuthService } from '../auth/auth-user/auth.service';
+import { Component, OnInit, signal } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
   standalone: false,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn = signal<boolean>(false);
   userName: string | null = null;
+  menuVisible = false; 
 
   constructor(private authService: AuthService) {}
 
@@ -21,12 +22,17 @@ export class HeaderComponent implements OnInit {
       if (status) {
         this.userName = this.authService.getUserName();
       } else {
-        this.userName = null; 
+        this.userName = null;
       }
     });
   }
+
   onLogout(): void {
-    this.authService.logout(); 
-    this.isLoggedIn.set(false)
+    this.authService.logout();
+    this.isLoggedIn.set(false);
+  }
+
+  toggleMenu(): void {
+    this.menuVisible = !this.menuVisible; 
   }
 }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import type { NewOrder } from '../orders-list/orders.module';
-import { OrdersService } from '../orders-list/orders.service';
+import { OrdersService } from '../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products/products.service';
 import { Product } from '../products/product.module';
-import { CustomerService } from '../customers/customers.service';
+import { CustomerService } from '../services/customers.service';
 import { Customer } from '../customers/customers.module';
 import { signal } from '@angular/core';
 

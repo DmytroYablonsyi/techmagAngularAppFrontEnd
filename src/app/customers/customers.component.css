@@ -1,10 +1,10 @@
 .customer-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    border-radius: 8px; 
+    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -14,7 +14,7 @@
     color: white;
     font-weight: bold;
     text-align: left;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 14px;
 }
@@ -22,14 +22,14 @@
 .customer-table td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #f0f0f0; 
+    border-bottom: 1px solid #f0f0f0;
     color: #333;
     font-size: 14px;
 }
 
 .customer-table tr:hover {
-    background-color: #f5f5f5; 
-    cursor: pointer; 
+    background-color: #f5f5f5;
+    cursor: pointer;
 }
 
 .customer-table td:first-child {
@@ -40,11 +40,10 @@
 .customer-table td:last-child {
     font-style: italic;
     color: #7f8c8d;
-    text-align: center;
 }
 
 .view-details-btn {
-    background-color: #f39c12; 
+    background-color: #f39c12;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -55,19 +54,62 @@
 }
 
 .view-details-btn:hover {
-    background-color: #e67e22; 
+    background-color: #e67e22;
 }
 
 @media (max-width: 768px) {
     .customer-table {
-        font-size: 12px; 
+        font-size: 12px;
+        margin-top: 10px;
     }
     
     .customer-table th, .customer-table td {
         padding: 10px;
     }
+
+    .customer-table td:last-child {
+      border-bottom: 2px solid black;
+    }
     
     .view-details-btn {
         padding: 8px 16px;
+        font-size: 12px;
+    }
+    .customer-table,  .customer-table td {
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .customer-table tr {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .customer-table th {
+        display: none; /* Сховуємо заголовки таблиці на малих екранах */
+    }
+
+    .customer-table td {
+        border: none;
+        border-bottom: 1px solid #f0f0f0;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    /* Додаємо псевдо-елементи для заголовків */
+    .customer-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    /* Кнопка "Переглянути деталі" */
+    .view-details-btn {
+        width: 100%;
+        text-align: center;
     }
 }

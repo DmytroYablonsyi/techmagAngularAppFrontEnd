@@ -1,131 +1,245 @@
-
+/* Загальні стилі */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(135deg, #3498db, #8e44ad);
-    color: white;
-    padding: 15px 30px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-    font-family: 'Roboto', sans-serif; 
-    transition: all 0.3s ease; 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .header:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
-  }
-  
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
 
 .logo {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 2px; 
-    cursor: pointer; 
-    transition: all 0.3s ease; 
-  }
-  
-.logo-text {
-    font-size: 32px;
-    font-family: 'Poppins', sans-serif; 
-    text-transform: uppercase; 
-    letter-spacing: 5px; 
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-    transition: all 0.3s ease; 
-  }
-  
-.logo:hover {
-    color: #f39c12; 
-    transform: scale(1.1); 
-    transition: all 0.3s ease; 
-  }
-  
-@media (max-width: 768px) {
-    .header {
-      padding: 10px 20px; 
-    }
-  
-    .logo-text {
-      font-size: 26px;
-    }
-  }
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-ul{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-  }
-  
+.logo-text {
+  font-size: 28px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: #f39c12;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger-line {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+nav {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 a {
-    text-decoration: none; 
-    color: white; 
-    font-weight: bold;
-    transition: color 0.3s ease; 
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-  }
-  
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
 a:hover {
-    color: #3498db
-  }
-  
+  color: #3498db;
+}
+
 a.active {
-    color: #f39c12; 
-  }
+  color: #f39c12;
+}
+
 .active-link {
-    color: #3498db
-  }
-  
- /* Загальний стиль для елементу списку */
+  color: #3498db;
+}
+
 .user-info {
   display: flex;
   align-items: center;
-  gap: 10px; /* Розрив між ім'ям і кнопкою */
+  gap: 10px;
   font-size: 16px;
   font-weight: 500;
   color: #333;
 }
 
-/* Стиль для привітального повідомлення */
 .welcome-message {
   font-size: 18px;
   font-weight: bold;
-  color: #97eb9a; /* Колір, який відображатиме привітання */
+  color: #97eb9a;
 }
 
-/* Стиль для кнопки Logout */
 .logout-btn {
   padding: 6px 12px;
-  background-color: #f44336; /* Червоний колір для кнопки Logout */
+  background-color: #f44336;
   color: white;
   border: none;
   border-radius: 4px;
-  text-decoration: none;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Стиль для hover ефекту на кнопці Logout */
 .logout-btn:hover {
-  background-color: #d32f2f; /* Трохи темніший відтінок червоного */
+  background-color: #d32f2f;
 }
 
-/* Адаптивність для мобільних пристроїв */
 @media (max-width: 768px) {
-  .user-info {
-    flex-direction: column; /* Розміщуємо ім'я та кнопку під один одному */
-    align-items: flex-start;
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgb(37, 149, 37);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    border-radius: 8px;
+    width: 200px;
+    padding: 20px;
   }
-  .welcome-message {
+
+  nav ul.show-menu {
+    display: flex;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .burger-menu.open .burger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .burger-menu.open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-menu.open .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     font-size: 14px;
   }
+
   .logout-btn {
-    margin-top: 5px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .active-link {
+    color: #3498db;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 15px 30px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .logo-text {
+    font-size: 30px;
+  }
+
+  ul {
+    gap: 30px;
+  }
+
+  .user-info {
+    font-size: 16px;
+    gap: 12px;
+  }
+
+  .welcome-message {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 15px 40px;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .logo-text {
+    font-size: 32px;
+  }
+
+  ul {
+    gap: 40px;
+  }
+
+  .user-info {
+    font-size: 18px;
+    gap: 15px;
+  }
+
+  .welcome-message {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 20px 50px;
+  }
+
+  .logo-text {
+    font-size: 36px;
+  }
+
+  ul {
+    gap: 50px;
+  }
+
+  .user-info {
+    font-size: 20px;
+    gap: 20px;
+  }
+
+  .welcome-message {
+    font-size: 20px;
   }
 }

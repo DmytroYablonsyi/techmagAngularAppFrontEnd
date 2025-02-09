@@ -8,7 +8,7 @@ import { AuthGuard } from './auth/auth-user/auth.guard';
 import { AppComponent } from './app.component';
 import { OrderListComponent } from './orders-list/orders-list.component';
 import { NewOrderComponent } from './new-order/new-order.component'
-import { OrdersService } from './orders-list/orders.service';
+import { OrdersService } from './services/orders.service';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
