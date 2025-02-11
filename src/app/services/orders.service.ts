@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { NewOrder, Order } from '../orders-list/orders.module';
+import { Order } from '../orders-list/orders.module';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -22,8 +22,8 @@ export class OrdersService {
     return this.http.get<Order>(`${this.apiUrl}/${id}`, {headers})
   }
 
-  addOrder(order: NewOrder): Observable<NewOrder> {
+  addOrder(order: Order): Observable<Order> {
     const headers = this.authService.getAuthHeaders();
-    return this.http.post<NewOrder>(this.apiUrl, order, {headers});
+    return this.http.post<Order>(this.apiUrl, order, {headers});
   }
 }

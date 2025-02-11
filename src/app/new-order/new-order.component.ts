@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import type { NewOrder } from '../orders-list/orders.module';
+import type { Order } from '../orders-list/orders.module';
 import { OrdersService } from '../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products/products.service';
@@ -7,6 +7,7 @@ import { Product } from '../products/product.module';
 import { CustomerService } from '../services/customers.service';
 import { Customer } from '../customers/customers.module';
 import { signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-order',
@@ -16,7 +17,7 @@ import { signal } from '@angular/core';
 })
 export class NewOrderComponent {
   customers = signal<Customer[]>([]);
-  orders = signal<NewOrder[]>([]); 
+  orders = signal<Order[]>([]); 
   product!: Product;
 
   customerName = signal<string>('');
@@ -32,6 +33,7 @@ export class NewOrderComponent {
       private orderService: OrdersService,
       private productService: ProductsService,
       private route: ActivatedRoute,
+      private router: Router
       
   ) {};
 
@@ -89,7 +91,7 @@ export class NewOrderComponent {
  
     if (this.customerName() && this.quantity() > 0 ) {
       
-      const newOrder: NewOrder = {
+      const newOrder: Order = {
         customerName: this.customerName(),
         product: this.product.name,
         quantity: this.quantity(),
@@ -103,7 +105,8 @@ export class NewOrderComponent {
 
       this.orderService.addOrder(newOrder).subscribe(
         (order) => {
-          this.orders.update(orders => [...orders, order]);;  
+          this.orders.update(orders => [...orders, order]);
+          this.router.navigate(['orders'])
           this.resetForm();
         },
         (error) => {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import {jwtDecode} from 'jwt-decode'
 
 @Injectable({
   providedIn: 'root'
@@ -53,8 +54,9 @@ export class AuthService {
   }
 
   private decodeToken(token: string): any {
-    const payload = token.split('.')[1];
-    return JSON.parse(atob(payload));
+    console.log(token)
+    // const payload = token.split('.')[1];
+    return jwtDecode(token)
   }
 
   get authStatus() {
