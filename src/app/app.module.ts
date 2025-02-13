@@ -13,7 +13,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { NewCustomerComponent } from './new-customers/new-customers.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 import { RegisterUserComponent } from './auth/register-user/register-user.component';
-import { AppRoutingModule } from './app-routing.module'; // Імпорт модуля маршрутизації
+import { AppRoutingModule } from './app-routing.module'; 
 
 @NgModule({
   declarations: [
