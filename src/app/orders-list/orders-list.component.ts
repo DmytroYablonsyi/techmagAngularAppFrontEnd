@@ -24,7 +24,7 @@ export class OrderListComponent implements OnInit {
     });
   };
 
-  getOrderDetails(orderId: string): void {
+  getOrderDetails(orderId: string | undefined): void {
     this.router.navigate([`/order/${orderId}`]);
   }
 }

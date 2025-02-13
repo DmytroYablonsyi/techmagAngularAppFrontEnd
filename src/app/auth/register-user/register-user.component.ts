@@ -13,7 +13,6 @@ export class RegisterUserComponent {
   registerForm: FormGroup;
 
   errorMessage = signal<string | null>(null);
-  successMessage = signal<string | null>(null);
 
   constructor(
     private authService: AuthService,
@@ -43,12 +42,15 @@ export class RegisterUserComponent {
     this.authService.register(name, email, password).subscribe(
       () => {
         this.router.navigate(['/login']);
+      },
+      (error) => {
+        // Обробка помилки при реєстрації
+        this.errorMessage.set(error.message);  // Використовуємо помилку з сервера
       }
     );
   }
-
   get formControls() {
     return this.registerForm.controls;
   }
-}
 
+}

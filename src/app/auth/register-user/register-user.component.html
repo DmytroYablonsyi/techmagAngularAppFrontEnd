@@ -1,6 +1,12 @@
 <div class="register-container">
+    <a routerLink="/login" class="back-btn">Back to Login</a>
+
     <h2>Register</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage() }}</p>
+      </div>
       <div class="form-group">
         <label for="name">Full Name</label>
         <input id="name" formControlName="name" type="text" />

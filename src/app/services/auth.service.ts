@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import {jwtDecode} from 'jwt-decode'
 
@@ -18,13 +18,25 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.clear();
     this._authStatus.next(false);
     this.router.navigate(['/login']);
   }
 
   register(name: string, email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, {name, email, password });
+    return this.http.post(`${this.apiUrl}/register`, {name, email, password }).pipe(
+      catchError(error => {
+        let errorMessage = 'An unknown error occurred!';
+        
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        } else if (error.status === 400 && error.error.message === 'User already exists') {
+          errorMessage = error.error.message;
+        }
+
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
   getToken(): string | null {
@@ -54,8 +66,6 @@ export class AuthService {
   }
 
   private decodeToken(token: string): any {
-    console.log(token)
-    // const payload = token.split('.')[1];
     return jwtDecode(token)
   }
 
