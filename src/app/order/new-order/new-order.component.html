@@ -20,7 +20,7 @@
     <div *ngIf="product().delivery.available; else noDelivery">
       <label for="delivMethod">Delivery type:</label>
       <select id="delivMethod" (change)="onDelivMethodChange($event); updateAmount()">
-        <option value="" disabled>Choose delivery type from the list</option>
+        <option value="" disabled selected>Choose delivery type from the list</option>
         <option *ngFor="let method of product().delivery.methods" [value]="method.method">
           {{ method.method }}
         </option>

@@ -103,7 +103,7 @@ export class NewOrderComponent {
       
       const newOrder: Order = {
         customerName: this.customerName(),
-        product: this.product.name,
+        product: this.product().name,
         quantity: this.quantity(),
         amount: this.amount(),
         delivery: {
@@ -129,7 +129,7 @@ export class NewOrderComponent {
   }
   resetForm(): void {
     this.customerName.set('');
-    this.selectedProduct.set('');
+    // this.selectedProduct.set('');
     this.quantity.set(1);
     this.delivMethod.set('');
     this.deliveryTime.set('');
