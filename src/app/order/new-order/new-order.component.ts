@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import type { Order } from '../orders-list/orders.module';
-import { OrdersService } from '../services/orders.service';
+import { OrdersService } from '../../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../products/products.service';
-import { Product } from '../products/product.module';
-import { CustomerService } from '../services/customers.service';
-import { Customer } from '../customers/customers.module';
+import { ProductsService } from '../../products/products.service';
+import { Product } from '../../products/product.module';
+import { CustomerService } from '../../services/customers.service';
+import { Customer } from '../../customer/customers/customers.module';
 import { signal } from '@angular/core';
 import { Router } from '@angular/router';
 

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth-user/auth.guard';
 import { HomeComponent } from './products/products.component';
-import { OrderListComponent } from './orders-list/orders-list.component';
-import { CustomersComponent } from './customers/customers.component';
-import { OrderDetailsComponent } from './order-details/order-details.component';
-import { NewOrderComponent } from './new-order/new-order.component';
-import { NewCustomerComponent } from './new-customers/new-customers.component';
+import { OrderListComponent } from './order/orders-list/orders-list.component';
+import { CustomersComponent } from './customer/customers/customers.component';
+import { OrderDetailsComponent } from './order/order-details/order-details.component';
+import { NewOrderComponent } from './order/new-order/new-order.component';
+import { NewCustomerComponent } from './customer/new-customers/new-customers.component';
 import { RegisterUserComponent } from './auth/register-user/register-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 

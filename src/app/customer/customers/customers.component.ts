@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from './customers.module';
-import { CustomerService } from '../services/customers.service';
+import { CustomerService } from '../../services/customers.service';
 import { signal } from '@angular/core';
 
 @Component({
