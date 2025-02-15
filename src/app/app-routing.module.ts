@@ -9,6 +9,7 @@ import { NewOrderComponent } from './order/new-order/new-order.component';
 import { NewCustomerComponent } from './customer/new-customers/new-customers.component';
 import { RegisterUserComponent } from './auth/register-user/register-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
+import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'new-customer', component: NewCustomerComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterUserComponent },
   { path: 'login', component: AuthUserComponent },
+  { path: 'edit-customer/:id', component: EditCustomerComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ import { NewCustomerComponent } from './customer/new-customers/new-customers.com
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 import { RegisterUserComponent } from './auth/register-user/register-user.component';
 import { AppRoutingModule } from './app-routing.module'; 
+import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
     OrderDetailsComponent,
     NewCustomerComponent,
     AuthUserComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,

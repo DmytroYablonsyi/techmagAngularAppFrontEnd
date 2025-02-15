@@ -17,8 +17,26 @@ export class CustomersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadCustomers();
+  };
+
+  loadCustomers(): void {
     this.customersService.getCustomers().subscribe((data) => {
       this.customers.set(data.reverse());
     });
-  };
+  }
+
+  deleteCustomer(customerId: string | undefined): void {
+    if (customerId && confirm('Are you sure you want to delete this customer?')) {
+      this.customersService.deleteCustomer(customerId).subscribe(
+        () => {
+          this.loadCustomers(); 
+        },
+        (error) => {
+          console.error('Error deleting customer', error);
+        }
+      );
+    }
+  }
+  
 }

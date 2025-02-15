@@ -1,0 +1,67 @@
+<h1 class="customer-form-head">Update Customer Details</h1>
+
+<form [formGroup]="customerForm" (ngSubmit)="updateCustomer()" class="customer-form">
+  <div class="form-group">
+    <label for="name">Company Name</label>
+    <input 
+      id="name" 
+      type="text" 
+      formControlName="name" 
+      class="form-control" 
+      placeholder="Enter company name" 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="contactPerson">Contact Person</label>
+    <input 
+      id="contactPerson" 
+      type="text" 
+      formControlName="contactPerson" 
+      class="form-control" 
+      placeholder="Enter contact person's name" 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="city">City</label>
+    <input 
+      id="city" 
+      type="text" 
+      formControlName="city" 
+      class="form-control" 
+      placeholder="Enter city name" 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="street">Street</label>
+    <input 
+      id="street" 
+      type="text" 
+      formControlName="street" 
+      class="form-control" 
+      placeholder="Enter street name" 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input 
+      id="phone" 
+      type="tel" 
+      formControlName="phone" 
+      class="form-control" 
+      placeholder="Enter phone number" 
+    />
+  </div>
+
+  <div class="text-center">
+    <button 
+      type="submit" 
+      class="btn btn-primary"
+    >
+      Update Customer Details
+    </button>
+  </div>
+</form>

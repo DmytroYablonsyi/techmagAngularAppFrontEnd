@@ -27,4 +27,14 @@ export class CustomerService {
     const headers = this.authService.getAuthHeaders();
     return this.http.post<Customer>(this.apiUrl, customer, {headers});
   }
+
+  updateCustomer(id: string, customerData: Customer): Observable<any> {
+    const headers = this.authService.getAuthHeaders();
+    return this.http.put(`${this.apiUrl}/${id}`, customerData, {headers});
+  }
+
+  deleteCustomer(customerId: string): Observable<void> {
+    const headers = this.authService.getAuthHeaders();
+    return this.http.delete<void>(`${this.apiUrl}/${customerId}`, {headers});
+  }
 }
