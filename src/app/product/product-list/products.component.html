@@ -1,6 +1,7 @@
 <table class="product-table">
   <thead>
     <tr>
+      <th></th> 
       <th>Name</th>
       <th>Description</th>
       <th>Price</th>
@@ -10,11 +11,16 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products()">
+      <td>
+        <button [routerLink]="['/edit-product', product._id]" class="edit-order-btn">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
       <td class="productName">{{ product.name }}</td>
       <td class="description">{{ product.description }}</td>
       <td class="price">{{ product.price | currency }}</td>
       <td>
-        <div *ngIf="product.delivery.methods.length > 0; else noDelivery">
+        <div *ngIf="product.delivery.available; else noDelivery">
           <ul id="delivery-method-{{ product._id }}">
             <li *ngFor="let method of product.delivery.methods">
               {{ method.method }} - {{ method.time }} - {{ method.price | currency }}

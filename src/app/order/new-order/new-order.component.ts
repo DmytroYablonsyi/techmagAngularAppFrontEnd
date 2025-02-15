@@ -3,7 +3,7 @@ import type { Order } from '../orders-list/orders.module';
 import { OrdersService } from '../../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
-import { Product } from '../../products/product.module';
+import { Product } from '../../product/product-list/product.module';
 import { CustomerService } from '../../services/customers.service';
 import { Customer } from '../../customer/customers/customers.module';
 import { signal } from '@angular/core';
@@ -18,7 +18,16 @@ import { Router } from '@angular/router';
 export class NewOrderComponent {
   customers = signal<Customer[]>([]);
   orders = signal<Order[]>([]); 
-  product!: Product;
+  product = signal<Product>({
+    _id: '',
+    name: '',
+    description: '',
+    price: 0,
+    delivery: {
+      available: false,
+      methods: []
+    }
+  });
 
   customerName = signal<string>('');
   selectedProduct = signal<string>('');
@@ -47,7 +56,7 @@ export class NewOrderComponent {
   getProductDetails(id: string): void {
     this.productService.getProductById(id).subscribe(
       (data: Product) => {
-        this.product = data; 
+        this.product.set(data); 
       },
       (error: any) => {
         console.error('Error fetching order:', error); 
@@ -56,7 +65,7 @@ export class NewOrderComponent {
   };
 
   updateAmount(): void {
-    this.amount.set(this.quantity() * this.product.price + this.deliveryPrice());
+    this.amount.set(this.quantity() * this.product().price + this.deliveryPrice());
   };
 
   onCustomerNameChange(event: Event): void {
@@ -77,7 +86,8 @@ export class NewOrderComponent {
   }
 
   updateDeliveryDetails(): void {
-    const selectedMethod = this.product.delivery.methods.find(method => method.method === this.delivMethod());
+    const selectedMethod = this.product().delivery.methods.find(method => method.method === this.delivMethod());
+  
     if (selectedMethod) {
       this.deliveryTime.set(selectedMethod.time);
       this.deliveryPrice.set(selectedMethod.price);

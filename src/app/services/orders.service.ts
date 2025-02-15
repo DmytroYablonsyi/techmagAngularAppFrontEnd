@@ -12,18 +12,19 @@ export class OrdersService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
+  private getHeaders() {
+    return this.authService.getAuthHeaders();
+  }
+
   getOrders(): Observable<Order[]> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.get<Order[]>(this.apiUrl, {headers});
+    return this.http.get<Order[]>(this.apiUrl, { headers: this.getHeaders() });
   }
 
   getOrderById(id: string): Observable<Order> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.get<Order>(`${this.apiUrl}/${id}`, {headers})
+    return this.http.get<Order>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() })
   }
 
   addOrder(order: Order): Observable<Order> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.post<Order>(this.apiUrl, order, {headers});
+    return this.http.post<Order>(this.apiUrl, order, { headers: this.getHeaders() });
   }
 }

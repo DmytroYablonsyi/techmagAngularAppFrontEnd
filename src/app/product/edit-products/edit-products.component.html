@@ -1,0 +1,91 @@
+<h1 class="product-form-head">Update Product Details</h1>
+
+<form [formGroup]="productForm" (ngSubmit)="updateProduct()" class="product-form">
+  <div class="form-group">
+    <label for="name">Product Name</label>
+    <input 
+      id="name" 
+      type="text" 
+      formControlName="name" 
+      class="form-control" 
+      placeholder="Enter product name" 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea 
+      id="description" 
+      formControlName="description" 
+      class="form-control" 
+      placeholder="Enter product description"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input 
+      id="price" 
+      type="number" 
+      formControlName="price" 
+      class="form-control" 
+      placeholder="Enter product price" 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="deliveryAvailable">Delivery Available</label>
+    <input 
+      id="deliveryAvailable" 
+      type="checkbox" 
+      formControlName="deliveryAvailable" 
+    />
+  </div>
+
+  <div formArrayName="deliveryMethods" class="delivery-methods-section">
+    <h3>Delivery Methods</h3>
+    <div *ngFor="let method of deliveryMethods.controls; let i = index" [formGroupName]="i">
+      <div class="form-group">
+        <label for="method">Delivery Method</label>
+        <input 
+          id="method" 
+          type="text" 
+          formControlName="method" 
+          class="form-control" 
+          placeholder="Enter delivery method" 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="time">Delivery Time</label>
+        <input 
+          id="time" 
+          type="text" 
+          formControlName="time" 
+          class="form-control" 
+          placeholder="Enter delivery time" 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Delivery Price</label>
+        <input 
+          id="price" 
+          type="number" 
+          formControlName="price" 
+          class="form-control" 
+          placeholder="Enter delivery price" 
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button 
+      type="submit" 
+      class="btn btn-primary"
+    >
+      Update Product Details
+    </button>
+  </div>
+</form>

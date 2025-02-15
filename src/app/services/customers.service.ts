@@ -13,28 +13,27 @@ export class CustomerService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
+  private getHeaders() {
+    return this.authService.getAuthHeaders();
+  }
+
   getCustomers(): Observable<Customer[]> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.get<Customer[]>(this.apiUrl, {headers});
+    return this.http.get<Customer[]>(this.apiUrl, { headers: this.getHeaders() });
   }
 
   getCustomerById(id: string): Observable<Customer> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.get<Customer>(`${this.apiUrl}/${id}`, {headers})
+    return this.http.get<Customer>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
   createCustomer(customer: Customer): Observable<Customer> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.post<Customer>(this.apiUrl, customer, {headers});
+    return this.http.post<Customer>(this.apiUrl, customer, { headers: this.getHeaders() });
   }
 
   updateCustomer(id: string, customerData: Customer): Observable<any> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.put(`${this.apiUrl}/${id}`, customerData, {headers});
+    return this.http.put(`${this.apiUrl}/${id}`, customerData, { headers: this.getHeaders() });
   }
 
   deleteCustomer(customerId: string): Observable<void> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.delete<void>(`${this.apiUrl}/${customerId}`, {headers});
+    return this.http.delete<void>(`${this.apiUrl}/${customerId}`, { headers: this.getHeaders() });
   }
 }

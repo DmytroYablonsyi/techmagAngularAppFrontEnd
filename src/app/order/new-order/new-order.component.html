@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Create New Order<br> <span class="product-name-head">{{ product.name }}</span></h2>
+  <h2>Create New Order<br> <span class="product-name-head">{{ product().name }}</span></h2>
   <form (ngSubmit)="onSubmit()">
 
     <div>
@@ -17,15 +17,19 @@
       <input id="quantity" type="number" [value]="quantity()" (input)="onQuantityChange($event)" required />
     </div>
 
-    <div>
+    <div *ngIf="product().delivery.available; else noDelivery">
       <label for="delivMethod">Delivery type:</label>
       <select id="delivMethod" (change)="onDelivMethodChange($event); updateAmount()">
         <option value="" disabled>Choose delivery type from the list</option>
-        <option *ngFor="let method of product.delivery.methods" [value]="method.method">
+        <option *ngFor="let method of product().delivery.methods" [value]="method.method">
           {{ method.method }}
         </option>
       </select>
     </div>
+
+    <ng-template #noDelivery>
+      <p class="no-delivery">Delivery is not available</p>
+    </ng-template>
 
     <div *ngIf="delivMethod()">
       <div>

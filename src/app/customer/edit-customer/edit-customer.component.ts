@@ -21,7 +21,6 @@ export class EditCustomerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Ініціалізуємо форму
     this.customerForm = this.fb.group({
       name: ['', Validators.required],
       contactPerson: ['', Validators.required],

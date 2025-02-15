@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product } from '../products/product.module';
+import { Product } from '../product/product-list/product.module';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
@@ -13,18 +13,19 @@ export class ProductsService {
   
   constructor(private http: HttpClient, private authService: AuthService) {}
 
+  private getHeaders() {
+    return this.authService.getAuthHeaders();
+  }
+
   getProducts(): Observable<Product[]> {
-    const headers = this.authService.getAuthHeaders();
-      return this.http.get<Product[]>(this.apiUrl, {headers});
+      return this.http.get<Product[]>(this.apiUrl, { headers: this.getHeaders() });
     }
 
   getProductById(id: string): Observable<Product> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.get<Product>(`${this.apiUrl}/${id}`, {headers} )
+    return this.http.get<Product>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() } )
   }
   
-  createProduct(product: Product): Observable<Product> {
-    const headers = this.authService.getAuthHeaders();
-    return this.http.post<Product>(this.apiUrl,product, {headers});
+  updateProduct(id: string, productData: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, productData, { headers: this.getHeaders()})
   }
 }

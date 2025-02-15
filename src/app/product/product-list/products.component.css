@@ -65,6 +65,17 @@
     transition: background-color 0.3s;
 }
 
+.edit-order-btn {
+    background-color: rgb(34, 34, 86);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
 .create-order-btn:hover {
     background-color: #27ae60; 
 }
@@ -117,10 +128,5 @@
     .product-table td:last-child {
         text-align: left;
         color: #025399;
-    }
-
-    .add-to-cart-btn {
-        padding: 8px 16px;
-        font-size: 14px;
     }
 }
