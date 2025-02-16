@@ -30,7 +30,7 @@ export class NewOrderComponent {
   });
 
   customerName = signal<string>('');
-  selectedProduct = signal<string>('');
+  // selectedProduct = signal<string>('');
   quantity = signal<number>(1);
   delivMethod = signal<string>('');
   deliveryTime = signal<string>('');
@@ -64,14 +64,20 @@ export class NewOrderComponent {
     );
   };
 
+    // Update the total amount whenever quantity or delivery price changes
+
   updateAmount(): void {
     this.amount.set(this.quantity() * this.product().price + this.deliveryPrice());
   };
+
+    // Handle customer name change and update the customerName signal
 
   onCustomerNameChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.customerName.set(input.value); 
   }
+
+  // Handle quantity change and recalculate the total amount
 
   onQuantityChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -79,11 +85,15 @@ export class NewOrderComponent {
     this.updateAmount(); 
   }
 
+    // Handle delivery method change and update the delivery details accordingly
+
   onDelivMethodChange(event: Event): void {
     const select = event.target as HTMLSelectElement;
     this.delivMethod.set(select.value); 
     this.updateDeliveryDetails();
   }
+
+    // Update delivery details based on the selected delivery method
 
   updateDeliveryDetails(): void {
     const selectedMethod = this.product().delivery.methods.find(method => method.method === this.delivMethod());
@@ -129,7 +139,6 @@ export class NewOrderComponent {
   }
   resetForm(): void {
     this.customerName.set('');
-    // this.selectedProduct.set('');
     this.quantity.set(1);
     this.delivMethod.set('');
     this.deliveryTime.set('');

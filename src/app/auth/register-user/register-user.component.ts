@@ -44,13 +44,12 @@ export class RegisterUserComponent {
         this.router.navigate(['/login']);
       },
       (error) => {
-        // Обробка помилки при реєстрації
-        this.errorMessage.set(error.message);  // Використовуємо помилку з сервера
+        this.errorMessage.set(error.message);  
       }
     );
-  }
-  get formControls() {
-    return this.registerForm.controls;
-  }
+  };
 
+    get formControls() {
+      return this.registerForm.controls;
+  };
 }

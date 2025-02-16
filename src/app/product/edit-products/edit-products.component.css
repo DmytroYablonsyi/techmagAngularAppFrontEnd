@@ -1,129 +1,118 @@
 .back-btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 20px;
-    text-decoration: none;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+  text-decoration: none;
 }
 
-/* Загальний стиль для форми */
 .product-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Заголовок форми */
-  .product-form-head {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    color: #333;
-  }
+.product-form-head {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+}
   
-  /* Стиль для кожного поля форми */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Стиль для етикеток */
-  label {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #555;
-  }
-  
-  /* Стиль для текстових полів */
-  input[type="text"],
-  input[type="number"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-  }
-  
-  input[type="text"]:focus,
-  input[type="number"]:focus,
-  textarea:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  textarea {
-    height: 100px;
-  }
-  
-  /* Стиль для checkbox */
-  input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  /* Стиль для кнопки */
-  button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Для кожного методу доставки */
-  .delivery-methods-section {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fafafa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .delivery-methods-section .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .delivery-methods-section h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  /* Між розділами */
-  .delivery-methods-section .form-group label {
-    font-weight: 600;
-  }
-  
-  /* Стиль для окремих методів доставки */
-  .delivery-methods-section input[type="text"],
-  .delivery-methods-section input[type="number"] {
-    font-size: 14px;
-  }
-  
-  .delivery-methods-section input[type="text"]:focus,
-  .delivery-methods-section input[type="number"]:focus {
-    border-color: #007bff;
-  }
-  
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.delivery-methods-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.delivery-methods-section .form-group {
+  margin-bottom: 15px;
+}
+
+.delivery-methods-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.delivery-methods-section .form-group label {
+  font-weight: 600;
+}
+
+.delivery-methods-section input[type="text"],
+.delivery-methods-section input[type="number"] {
+  font-size: 14px;
+}
+
+.delivery-methods-section input[type="text"]:focus,
+.delivery-methods-section input[type="number"]:focus {
+  border-color: #007bff;
+}

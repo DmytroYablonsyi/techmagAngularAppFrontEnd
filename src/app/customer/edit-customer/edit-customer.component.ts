@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../../services/customers.service';
-import { Customer } from '../customers/customers.module';
 
 @Component({
   selector: 'app-customer-update',
@@ -29,6 +28,8 @@ export class EditCustomerComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
     });
 
+    // Populate the form with the fetched customer data
+
     const customerId = this.route.snapshot.paramMap.get('id');
     if (customerId) {
       this.customerService.getCustomerById(customerId).subscribe(
@@ -49,8 +50,8 @@ export class EditCustomerComponent implements OnInit {
   }
 
   updateCustomer(): void {
+    // Get the updated customer data from the form and update on it server
     const updatedCustomer = this.customerForm.value;
-    console.log(updatedCustomer)
     const customerId = this.route.snapshot.paramMap.get('id');
     if (customerId) {
       this.customerService.updateCustomer(customerId, updatedCustomer).subscribe(

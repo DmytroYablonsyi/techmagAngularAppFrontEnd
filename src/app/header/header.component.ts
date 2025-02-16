@@ -9,20 +9,21 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn = signal<boolean>(false);
-  userName: string | null = null;
-  menuVisible = false; 
+  userName = signal<string | null>(null); 
+  menuVisible = signal<boolean>(false); 
+
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.userName = this.authService.getUserName();
+    this.userName.set(this.authService.getUserName());
 
     this.authService.authStatus.subscribe(status => {
       this.isLoggedIn.set(status);
       if (status) {
-        this.userName = this.authService.getUserName();
+        this.userName.set(this.authService.getUserName());
       } else {
-        this.userName = null;
+        this.userName.set(null);
       }
     });
   }
@@ -33,6 +34,6 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleMenu(): void {
-    this.menuVisible = !this.menuVisible; 
+    this.menuVisible.set(!this.menuVisible()); // Toggle the menu visibility signal
   }
 }

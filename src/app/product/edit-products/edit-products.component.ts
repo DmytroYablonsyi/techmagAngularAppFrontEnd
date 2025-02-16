@@ -32,7 +32,8 @@ export class EditProductsComponent implements OnInit {
     if (productId) {
       this.productService.getProductById(productId).subscribe(
         (productData) => {
-          console.log(productData)
+
+          // Patch the form values with the fetched product data
           this.productForm.patchValue({
             name: productData.name,
             description: productData.description,
@@ -40,6 +41,7 @@ export class EditProductsComponent implements OnInit {
             deliveryAvailable: productData.delivery.available,
           });
 
+           // Get the deliveryMethods form array and loop through the product's delivery methods and add each as a form group
           const deliveryMethods = this.productForm.get('deliveryMethods') as FormArray;
           productData.delivery.methods.forEach(method => {
             deliveryMethods.push(this.fb.group({
@@ -57,23 +59,25 @@ export class EditProductsComponent implements OnInit {
     }
   }
 
-  get deliveryMethods() {
-    return (this.productForm.get('deliveryMethods') as FormArray);
-  }
+    // Getter for deliveryMethods (to simplify accessing the FormArray)
+    get deliveryMethods() {
+      return (this.productForm.get('deliveryMethods') as FormArray);
+    }
 
-  updateProduct(): void {
-    const updatedProduct = this.productForm.value;
-    const productId = this.route.snapshot.paramMap.get('id');
-    if (productId) {
-      this.productService.updateProduct(productId, updatedProduct).subscribe(
-        (response) => {
-          console.log('Product updated successfully:', response);
-          this.router.navigate(['/']);
-        },
-        (error) => {
-          console.error('Error updating product:', error);
-        }
-      );
+    // update product data
+    updateProduct(): void {
+      const updatedProduct = this.productForm.value;
+      const productId = this.route.snapshot.paramMap.get('id');
+      if (productId) {
+        this.productService.updateProduct(productId, updatedProduct).subscribe(
+          (response) => {
+            console.log('Product updated successfully:', response);
+            this.router.navigate(['/']);
+          },
+          (error) => {
+            console.error('Error updating product:', error);
+          }
+        );
+      }
     }
   }
-}
